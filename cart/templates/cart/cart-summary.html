@@ -3,6 +3,7 @@
 
 {% load static %}
 
+{% load mathfilters %}
 
 {% block content %}
 
@@ -15,87 +16,106 @@
 
             <hr>
 
-            <br>
+            {% for item in cart %}
 
-            <div class="row mb-4 border product-item">
-
-                <div class="col-md-3 col-lg-2 order-md-first bg-light">
-
-                    <img class="img-fluid mx-auto d-block" width="200px"
-                         alt="Responsive image" src=""> <!-- Product image -->
-
-                </div>
+                {% with product=item.product %}
 
 
-                <div class="col-md-9 col-lg-10 ps-md-3 ps-lg-10">
+                    <br>
 
-                    <a href="" class="text-decoration-none text-reset">
-                        <!-- Product get absolute url -->
+                    <div class="row mb-4 border product-item">
 
-                        <h1 class="h5 pt-2"> <!-- Product title --> </h1>
+                        <div class="col-md-3 col-lg-2 order-md-first bg-light">
 
-                    </a>
-
-                    <div class="border">
-
-                        <div class="col border-bottom">
-
-                            <div class="row p-3">
-
-                                <div class="col-6"> Product</div>
-
-                                <div class="col-6 text-end"><span
-                                        class="h6 fw-bold">$
-                                    <!-- Product price --> </span></div>
-
-                            </div>
+                            <img class="img-fluid mx-auto d-block"
+                                 width="200px"
+                                 alt="Responsive image"
+                                 src="{{ product.image.url }}">
+                            <!-- Product image -->
 
                         </div>
 
-                        <div class="col">
 
-                            <div class="row p-3">
+                        <div class="col-md-9 col-lg-10 ps-md-3 ps-lg-10">
 
-                                <div class="col-12">
+                            <a href="{{ product.get_absolute_url }}"
+                               class="text-info text-decoration-none">
+                                <!-- Product get absolute url -->
 
-                                    <label for="select">Qty</label>
+                                <h1 class="h5 pt-2"> {{ product.title }}
+                                    <!-- Product title --> </h1>
 
-                                    &nbsp;
+                            </a>
 
-                                    <select id="">
+                            <div class="border">
 
-                                        <option selected>
+                                <div class="col border-bottom">
 
-                                            {{ item.qty }}
+                                    <div class="row p-3">
 
-                                        </option>
+                                        <div class="col-6"> Product</div>
 
-                                        <option value="">1</option>
+                                        <div class="col-6 text-end">
+                                            <span
+                                                    class="h6 fw-bold">
+                                            $ {{ product.price|mul:item.qty }}
+                                            </span>
+                                        </div>
 
-                                        <option value="">2</option>
+                                    </div>
 
-                                        <option value="">3</option>
+                                </div>
 
-                                        <option value="">4</option>
+                                <div class="col">
 
-                                    </select>
+                                    <div class="row p-3">
 
-                                    <br> <br>
+                                        <div class="col-12">
 
-                                    <button type="button" id="update-button"
-                                            class="btn btn-primary btn-sm update-button">
-                                        Update
+                                            <label for="select">Qty</label>
 
-                                    </button>
+                                            &nbsp;
 
-                                    &nbsp;
+                                            <select id="">
 
-                                    <button type="button" id="delete-button"
-                                            class="btn btn-danger btn-sm delete-button">
-                                        Delete
+                                                <option selected>
 
-                                    </button>
+                                                    {{ item.qty }}
 
+                                                </option>
+
+                                                <option value="">1</option>
+
+                                                <option value="">2</option>
+
+                                                <option value="">3</option>
+
+                                                <option value="">4</option>
+
+                                            </select>
+
+                                            <br> <br>
+
+                                            <button type="button"
+                                                    id="update-button"
+                                                    class="btn btn-primary btn-sm update-button">
+                                                Update
+
+                                            </button>
+
+                                            &nbsp;
+
+                                            <button type="button"
+                                                    id="delete-button"
+                                                    class="btn btn-danger btn-sm delete-button">
+                                                Delete
+
+                                            </button>
+
+
+                                        </div>
+
+                                    </div>
 
                                 </div>
 
@@ -105,16 +125,17 @@
 
                     </div>
 
-                </div>
+                {% endwith %}
 
-            </div>
+            {% endfor %}
+
 
 
             <div class="col-12 text-end">
 
                 <div class="h6 fw-bold"> Sub total: $
                     <div id="subtotal" class="d-inline-flex">
-                        <!-- cart.get_total --> </div>
+                        {{ cart.get_total }} </div>
                 </div>
 
             </div>
@@ -122,6 +143,8 @@
 
         </div>
 
+        <br>
+        <br>
 
     </main>
 
