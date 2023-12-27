@@ -30,7 +30,8 @@
 
                 <br>
 
-                <a href="#" class="btn btn-primary my-2"> Create an
+                <a href="{% url 'register' %}" class="btn btn-primary my-2">
+                    Create an
                     account </a>
 
 
@@ -63,7 +64,7 @@
                             <div class="card-body">
 
                                 <p class="card-text">
- 
+
                                     <a class="text-info text-decoration-none"
                                        href="{{ product.get_absolute_url }}"> {{ product.title | capfirst }}
                                     </a>
