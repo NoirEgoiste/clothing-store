@@ -133,9 +133,9 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Email sender notification
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST = "smtp.mailosaur.net"
 EMAIL_PORT = "587"
 EMAIL_USE_TLS = "True"
 
-EMAIL_HOST_USER = "onetime96@gmail.com"  # - Enter your GMAIL address
-EMAIL_HOST_PASSWORD = ""  # Enter your app password
+EMAIL_HOST_USER = "dffnk2lp@mailosaur.net"  # - Enter your GMAIL address
+EMAIL_HOST_PASSWORD = "YqBqk410smp90f7sXUBxVfovHJbJe8NQ"  # Enter your app password
