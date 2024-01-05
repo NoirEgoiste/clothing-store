@@ -137,5 +137,5 @@ EMAIL_HOST = "smtp.mailosaur.net"
 EMAIL_PORT = "587"
 EMAIL_USE_TLS = "True"
 
-EMAIL_HOST_USER = "dffnk2lp@mailosaur.net"  # - Enter your GMAIL address
+EMAIL_HOST_USER = "fear-create@dffnk2lp.mailosaur.net"  # - Enter your GMAIL address
 EMAIL_HOST_PASSWORD = "YqBqk410smp90f7sXUBxVfovHJbJe8NQ"  # Enter your app password

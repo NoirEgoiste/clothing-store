@@ -39,12 +39,15 @@
 
             <br> <br>
 
+            {{ form.non_field_errors }}
+
             <div class="text-center">
                 <a href="{% url 'register' %}"> Don't have an account ? </a>
 
                 <br>
 
-                <a href="{% url 'login' %}"> Forgotten your password? </a>
+                <a href="{% url 'reset_password' %}"> Forgotten your
+                    password? </a>
 
             </div>
 
