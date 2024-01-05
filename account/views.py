@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.contrib.sites.shortcuts import get_current_site
+from django.contrib import messages
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -117,7 +118,18 @@ def login(request):
 
 
 def logout(request):
-    auth.logout(request)
+    try:
+        for key in list(request.session.keys()):
+            if key == "session_key":
+                continue
+
+            else:
+                del request.session[key]
+
+    except KeyError:
+        pass
+
+    messages.success(request, "Logout success!")
     return redirect("store")
 
 
@@ -136,6 +148,8 @@ def profile_management(request):
         if user_form.is_valid():
             user_form.save()
 
+            messages.info(request, "Account updated")
+
             return redirect("dashboard")
 
     context = {"user_form": user_form}
@@ -153,6 +167,8 @@ def delete_account(request):
 
     if request.method == "POST":
         user.delete()
+
+        messages.error(request, "Account deleted")
 
         return redirect("store")
 
