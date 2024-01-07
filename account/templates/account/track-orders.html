@@ -1,0 +1,52 @@
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% include "store/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+    <body class="body-background">
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <div class="text-center">
+            <h3><i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp My
+                orders</h3>
+            <hr>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        {% for order in orders %}
+
+            <strong> <i class="fa fa-list-alt" aria-hidden="true"></i> Order
+                ID # {{ order.id }} </strong>
+
+            <br> <br>
+
+            {{ order.product }}
+
+            <br> <br>
+
+            Quantity x {{ order.quantity }}
+
+            <br> <br>
+
+            $ {{ order.price }}
+
+            <br> <br>
+
+            <hr>
+
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}

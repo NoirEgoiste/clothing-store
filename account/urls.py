@@ -64,4 +64,7 @@ urlpatterns = [
         views.email_verification_failed,
         name="email-verification-failed",
     ),
+    # Shipping management
+    path("manage-shipping", views.manage_shipping, name="manage-shipping"),
+    path("track-orders", views.track_orders, name="track-orders"),
 ]

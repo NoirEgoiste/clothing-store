@@ -34,7 +34,25 @@
         <p> Track all of your orders here. </p>
 
         <a class="btn btn-primary navbar-btn text-white w-100" type="button"
-           href="{% url 'cart-summary' %}"> My orders </a>
+           href="{% url 'track-orders' %}"> My orders </a>
+
+    </div>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <h4> Manage shipping </h4>
+        <hr>
+
+        <p> Update your shipping. </p>
+
+        <a class="btn btn-primary navbar-btn text-white w-100" type="button"
+           href="{% url 'manage-shipping' %}"> Manage Shipping </a>
+
+        <br>
+        <br>
+
 
     </div>
 
@@ -57,6 +75,7 @@
 
     </div>
 
+    <br>
 
 
 {% endblock %}
