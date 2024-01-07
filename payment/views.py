@@ -28,7 +28,8 @@ def checkout(request):
         # Authenticated users with shipping info.
         try:
             shipping_address = ShippingAddress.objects.get(
-                user=request.user.id)
+                user=request.user.id,
+            )
             context = {"shipping": shipping_address}
             return render(
                 request,
