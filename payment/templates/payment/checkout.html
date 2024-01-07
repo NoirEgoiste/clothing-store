@@ -1,0 +1,143 @@
+{% include "store/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <body class="body-background">
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5"
+         style="width:500px; border-radius:20px;">
+
+        <form id="form" onsubmit="event.preventDefault();">
+
+            <div>
+
+                <h3><i class="fa fa-chevron-circle-right"
+                       aria-hidden="true"></i> &nbsp; Complete your order
+                </h3>
+
+                <p> Please enter in the relevant information below. </p>
+
+                <hr>
+
+                <br>
+
+                <div class="form-field">
+
+                    <input class="form-control validate" id="name" type="text"
+                           placeholder="Full name*" autocomplete="off"
+                           value="{{ shipping.full_name }}" required>
+
+                </div>
+
+
+                <br>
+
+
+                <div class="form-field">
+
+                    <input class="form-control validate" id="email"
+                           type="email" placeholder="Email address*"
+                           autocomplete="off" value="{{ shipping.email }}"
+                           required>
+
+                </div>
+
+
+                <br>
+
+
+                <div class="form-field">
+
+                    <input class="form-control validate" id="address1"
+                           type="text" placeholder="Address 1*"
+                           autocomplete="off" value="{{ shipping.address1 }}"
+                           required>
+
+                </div>
+
+
+                <br>
+
+
+                <div class="form-field">
+
+                    <input class="form-control validate" id="address2"
+                           type="text" placeholder="Address 2*"
+                           autocomplete="off" value="{{ shipping.address2 }}"
+                           required>
+
+                </div>
+
+
+                <br>
+
+
+                <div class="form-field">
+
+                    <input class="form-control validate" id="city" type="text"
+                           placeholder="City*" autocomplete="off"
+                           value="{{ shipping.city }}"
+                           required>
+
+                </div>
+
+
+                <br>
+
+
+                <div class="form-field">
+
+                    <input class="form-control" id="state" type="text"
+                           placeholder="State (Optional)" autocomplete="off"
+                           value="{{ shipping.state }}">
+
+                </div>
+
+
+                <br>
+
+
+                <div class="form-field">
+
+                    <input class="form-control" id="zipcode" type="text"
+                           placeholder="Zip code (Optional)"
+                           autocomplete="off" value="{{ shipping.zipcode }}">
+
+                </div>
+
+            </div>
+
+            <br>
+
+
+            <!--<button id="complete-order" type="submit"
+                    class="btn btn-primary navbar-btn text-white w-100">
+                &nbsp;
+                Complete order
+            </button>
+            -->
+
+            <div id="paypal-button-container"></div>
+            <p id="result-message"></p>
+            <!-- Replace the "test" client-id value with your client-id -->
+            <script src="https://www.paypal.com/sdk/js?client-id=Aa0QIs88l0PMtC4VUe0GCojSoxyN-PjRjwmKP1V3-loIjurcp73cqijWdkpsDV5ThE5sAg3C0pLoHb4a&components=buttons&enable-funding=paylater,venmo,card"
+                    data-sdk-integration-source="integrationbuilder_sc"></script>
+
+            <script src="{% static "js/app.js" %}"></script>
+
+        </form>
+
+
+    </div>
+
+
+    <br>
+
+
+    </body>
+    
+{% endblock %}
