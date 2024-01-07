@@ -55,7 +55,8 @@ def complete_order(request):
         zipcode = request.POST.get("zipcode")
 
         shipping_address = (
-                address1 + "\n" + address2 + "\n" + city + "\n" + state + "\n" + zipcode
+                address1 + "\n" + address2 + "\n" + city + "\n" + state + "\n" +
+                zipcode
         )
 
         # Shopping cart information
