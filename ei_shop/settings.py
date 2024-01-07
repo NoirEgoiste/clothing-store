@@ -26,6 +26,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Unblock paypal popup
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -35,12 +38,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "store",
-    "cart",
     "mathfilters",
-    "account",
     "crispy_forms",
     "crispy_bootstrap4",
+    "store",
+    "cart",
+    "account",
+    "payment",
 ]
 
 MIDDLEWARE = [

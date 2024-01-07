@@ -138,9 +138,15 @@
                         {{ cart.get_total }} </div>
                 </div>
 
+
+                <a href="{% url 'checkout' %}"
+                   class="btn btn-primary my-2">
+                    <i class="fa fa-chevron-circle-right"
+                       aria-hidden="true"></i>
+                    Proceed to checkout </a>
+
             </div>
-
-
+        
         </div>
 
         <br>
@@ -196,7 +202,7 @@
                         //console.log(json)
 
                         location.reload();
-                        
+
                         document.getElementById("cart-qty").textContent = json.qty
                         document.getElementById("total").textContent = json.total
                     },
